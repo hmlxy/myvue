@@ -1,5 +1,5 @@
 <template>
-  <div class="miangap">
+  <div class="layout">
     <h1>use layout</h1>
     <!-- use layout -->
     <el-row :gutter="20">

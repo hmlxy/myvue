@@ -9,6 +9,7 @@
     <RadioElement></RadioElement>
     <CheckboxElement></CheckboxElement>
     <InputElement></InputElement>
+    <AxiosLearn></AxiosLearn>
 
 
 
@@ -24,7 +25,7 @@ import LinkElement from "./components/LinkElement.vue";
 import RadioElement from "./components/RadioElement.vue";
 import CheckboxElement from "./components/CheckboxElement.vue";
 import InputElement from "./components/InputElement.vue";
-
+import AxiosLearn from "./components/AxiosLearn.vue";
 
 
 
@@ -40,6 +41,12 @@ export default {
     RadioElement,
     CheckboxElement,
     InputElement,
+    AxiosLearn,
+  },
+  data() {
+    return {
+      property: 'value',
+    };
   },
 };
 </script>
