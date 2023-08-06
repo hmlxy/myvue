@@ -2,20 +2,44 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
     <HelloWorld msg="Welcome to Your Vue.js App" />
-    <MyTest msg="hello"></MyTest>
-   
+    <LayoutElement></LayoutElement>
+    <ContainerElement></ContainerElement>
+    <ButtonElement></ButtonElement>
+    <LinkElement></LinkElement>
+    <RadioElement></RadioElement>
+    <CheckboxElement></CheckboxElement>
+    <InputElement></InputElement>
+
+
+
   </div>
 </template>
 
 <script>
 import HelloWorld from "./components/HelloWorld.vue";
-import MyTest from "./components/MyTest.vue";
+import LayoutElement from "./components/LayoutElement.vue";
+import ContainerElement from "./components/ContainerElement.vue";
+import ButtonElement from "./components/ButtonElement.vue";
+import LinkElement from "./components/LinkElement.vue";
+import RadioElement from "./components/RadioElement.vue";
+import CheckboxElement from "./components/CheckboxElement.vue";
+import InputElement from "./components/InputElement.vue";
+
+
+
+
 
 export default {
   name: "App",
   components: {
     HelloWorld,
-    MyTest,
+    LayoutElement,
+    ContainerElement,
+    ButtonElement,
+    LinkElement,
+    RadioElement,
+    CheckboxElement,
+    InputElement,
   },
 };
 </script>

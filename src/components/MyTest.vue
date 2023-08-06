@@ -46,58 +46,6 @@
     <!-- use v-on -->
     <button @click="say('hello')">say hello</button>
 
-    <!-- use element-ui -->
-    <div class="miangap">
-      <h1>use layout</h1>
-      <!-- use layout -->
-      <el-row :gutter="20">
-        <el-col :span="16"><div class="grid-content bg-purple"></div></el-col>
-        <el-col :span="8"><div class="grid-content bg-purple"></div></el-col>
-      </el-row>
-      <el-row :gutter="20">
-        <el-col :span="8"><div class="grid-content bg-purple"></div></el-col>
-        <el-col :span="8"><div class="grid-content bg-purple"></div></el-col>
-        <el-col :span="4"><div class="grid-content bg-purple"></div></el-col>
-        <el-col :span="4"><div class="grid-content bg-purple"></div></el-col>
-      </el-row>
-      <el-row :gutter="20">
-        <el-col :span="4"><div class="grid-content bg-purple"></div></el-col>
-        <el-col :span="16"><div class="grid-content bg-purple"></div></el-col>
-        <el-col :span="4"><div class="grid-content bg-purple"></div></el-col>
-      </el-row>
-    </div>
-
-
-    <div class="container miangap text-white" >
-      <h1>use container</h1>
-      <el-container :direction="vertical">
-        <el-header height="100px" class="bg-purple">
-          this is el-head
-          <!-- Header content -->
-        </el-header>
-        <el-container :direction="horizontal">
-          <el-aside width="200px" class="bg-blue">
-            this is el-aside
-            <!-- Aside content -->
-          </el-aside>
-          <el-container :direction="vertical">
-            <el-main height="100px" class="bg-blue">
-              <!-- Main content -->
-              this is el-main
-            </el-main>
-            <el-footer height="100px" class="bg-purple">
-              this is el-footer
-              <!-- Footer content -->
-            </el-footer>
-          </el-container>
-        </el-container>
-      </el-container>
-    </div>
-
-    <div class="button">
-
-      
-    </div>
 
   </div>
 </template>
@@ -207,34 +155,5 @@ export default {
 .mytest {
   font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
 }
-.miangap {
-  width: 1200px;
-  margin: 20px auto;
-}
-.el-row {
-  margin-bottom: 20px;
-}
-.el-col {
-  border-radius: 4px;
-}
-
-.grid-content {
-  height: 200px;
-  margin: 20px 0;
-}
-
-.bg-purple {
-  background-color: rgb(183, 66, 66);
-}
-
-.bg-blue {
-  background-color: rgba(24, 43, 217, 0.847);
-}
-
-.text-white {
-  color: white;
-}
-
-
 
 </style>
