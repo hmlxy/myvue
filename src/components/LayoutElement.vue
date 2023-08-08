@@ -29,6 +29,12 @@ export default {
       
     }
   },
+  activated() {
+    console.log("this is layout activated");
+  },
+  deactivated() {
+    console.log("this is layout deactivated")
+  },
 };
 </script>
 

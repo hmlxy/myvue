@@ -10,13 +10,13 @@ Vue.use(ElementUI);
 import axios from './axios.js'
 Vue.prototype.$axios = axios
 
-
-
-
-
-
+import router from './router.js';
 Vue.config.productionTip = false; //关闭生产环境的提示
 
+
+
+
 new Vue({
+  router,
   render: (h) => h(App), //render函数会将组件渲染到页面
 }).$mount("#app");

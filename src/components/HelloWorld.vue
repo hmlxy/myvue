@@ -35,7 +35,13 @@ export default {
   name: 'HelloWorld',
   props: {
     msg: String
-  }
+  },
+  activated() {
+    console.log("this is helloworld activated");
+  },
+  deactivated() {
+    console.log("this is helloworld deactivated")
+  },
 }
 </script>
 

@@ -13,6 +13,9 @@
       <p>这是组件A</p>
       <p>this is result: {{ result }}</p>
     </div>
+
+    <h1>use props</h1>
+    <p>this is props: {{ msgProp }}</p>
   </div>
 </template>
 
@@ -20,6 +23,13 @@
 import _ from "lodash";
 export default {
   name: "AxiosLearn",
+  props: {
+    msgProp : {
+      type: String,
+      required: true,
+    }
+  },
+
   data() {
     return {
       property: "value",

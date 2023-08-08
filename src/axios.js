@@ -9,7 +9,7 @@ const instance = axios.create();
 */
  
 // 添加请求拦截器
-// const myInterceptor = 
+ const requestInterceptor = 
 instance.interceptors.request.use(
   function (config) {
     // 在发送请求之前做些什么
@@ -23,11 +23,11 @@ instance.interceptors.request.use(
   }
 );
 
-//  instance.interceptors.request.eject(myInterceptor);//移除拦截器
+instance.interceptors.request.eject(requestInterceptor);//移除拦截器
 
  
 // 添加响应拦截器
-instance.interceptors.response.use(
+const responseInterceptor = instance.interceptors.response.use(
   function (response) {
     // 对响应数据做点什么
     console.log('我接收到响应数据啦------')
@@ -39,6 +39,8 @@ instance.interceptors.response.use(
     return Promise.reject(error);
   }
 );
+
+instance.interceptors.response.eject(responseInterceptor);//移除拦截器
 
 
 
