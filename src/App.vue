@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" v-cloak>
     <img alt="Vue logo" src="./assets/logo.png" />
     <HelloWorld msg="Welcome to Your Vue.js App" />
     <LayoutElement></LayoutElement>
@@ -10,7 +10,7 @@
     <CheckboxElement></CheckboxElement>
     <InputElement></InputElement>
     <AxiosLearn :msg-prop="fahter"></AxiosLearn>
-  
+
     <div class="hookFuntion">
       <h1>use 生命周期钩子</h1>
       <p>this is count1: {{ count1 }}</p>
@@ -54,19 +54,46 @@
       </template>
 
       <!-- 子组件给父组件传内容 -->
-      <template v-slot="slotPros">
-        <div>this is form children {{ slotPros.text }}</div>
+      <template #children="slotProps">
+        <div>form children {{ slotProps.content }}</div>
       </template>
     </SlotLearn>
 
-    <div class="refs">
-      <p ref="myDomRef">this is myDomRef</p>
+    <EmitLearn @definedEvent="handleDefinedEvent"></EmitLearn>
+
+    <DirectiveUse></DirectiveUse>
+
+    <AttributeSuper></AttributeSuper>
+
+    <RefLearn ref="refChildren"></RefLearn>
+    <el-button type="primary" size="default" @click="useRefChildren"
+      >ref访问子组件</el-button
+    >
+    <div class="isComponent">
+      <h1>use is</h1>
+      <el-button type="primary" size="default" @click="changeCompnent"
+        >change component</el-button
+      >
+      <component :is="currentComponent"></component>
     </div>
 
-    <el-button type="primary" size="default" @click="sendmsg">发送消息给子组件</el-button>
-    <EmitLearn @eventName="handleClick"></EmitLearn>
-   
-    
+    <div class="useTransition">
+      <transition name="fade" >
+        <div class="tr" :key="message">
+          <p>{{ message }}</p>
+          <p>{{ message }}</p>
+          <p>{{ message }}</p>
+        </div>
+      </transition>
+      <el-button type="primary" size="default" @click="changeMsg"
+        >change msg</el-button
+      >
+    </div>
+
+    <TransitionGroup></TransitionGroup>
+
+
+
 
   </div>
 </template>
@@ -84,6 +111,10 @@ import AxiosLearn from "./components/AxiosLearn.vue";
 import InheritAttr from "./components/InheritAttr.vue";
 import SlotLearn from "./components/SlotLearn.vue";
 import EmitLearn from "./components/EmitLearn.vue";
+import DirectiveUse from "./components/DirectiveUse.vue";
+import AttributeSuper from "./components/AttributeSuper.vue";
+import RefLearn from "./components/RefLearn.vue";
+import TransitionGroup from "./components/TransitionGroup.vue";
 
 
 
@@ -102,6 +133,10 @@ export default {
     InheritAttr,
     SlotLearn,
     EmitLearn,
+    DirectiveUse,
+    AttributeSuper,
+    RefLearn,
+    TransitionGroup,
   },
 
   props: {
@@ -119,6 +154,8 @@ export default {
       count1: "1",
       count2: "2",
       isshow: true,
+      currentComponent: "HelloWorld",
+      message: "hello",
     };
   },
 
@@ -129,14 +166,21 @@ export default {
       return this.count1;
     },
     handleClick() {
-      console.log('Button clicked!');
+      console.log("Button clicked!");
     },
-    handleCustomEvent(data) {
-      console.log('父组件data:', data);
+    handleDefinedEvent(data) {
+      console.log("父组件data:", data);
     },
-    sendmsg() {
-      this.$emit('eventName', "this is emit");
-    }
+    useRefChildren() {
+      console.log(this.$refs.refChildren);
+    },
+    changeCompnent() {
+      this.currentComponent =
+        this.currentComponent === "HelloWorld" ? "LayoutElement" : "HelloWorld";
+    },
+    changeMsg() {
+      this.message = this.message === "hello" ? "goodbye" : "hello";
+    },
   },
 
   watch: {
@@ -173,7 +217,6 @@ export default {
     } else {
       console.log("is not isServer");
     }
-   
   },
 
   beforeUpdate() {
@@ -186,7 +229,11 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+[v-cloak] {
+  display: none;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -194,5 +241,15 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 1s;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
